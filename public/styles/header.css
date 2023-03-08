@@ -1,0 +1,13 @@
+header {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  /* place-items: center; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+  background-color: #4056a1;
+  background-image: url('../images/carbon-fibre.png');
+  color: #ffffff;
+}
