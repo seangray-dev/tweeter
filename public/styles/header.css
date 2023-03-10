@@ -1,8 +1,6 @@
 header {
-  border: 1px solid red;
   width: 100%;
   display: flex;
-  /* place-items: center; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
