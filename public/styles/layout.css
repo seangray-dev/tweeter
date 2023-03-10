@@ -31,4 +31,71 @@ main {
   width: 90%;
   text-align: center;
   margin-inline: auto;
+  max-width: 750px;
+  margin-bottom: 50px;
+}
+
+.article-tweet {
+  border: 3px solid #545149;
+  padding: 20px;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.article-tweet header {
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.tweet-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tweet-profile img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.tweet-username a {
+  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  color: #545149;
+  transition: opacity 0.3s ease;
+}
+
+.tweet-username a:hover,
+.tweet-username a:focus {
+  opacity: 1;
+}
+
+.tweet-text p {
+  border-bottom: 3px solid #545149;
+  padding: 10px 20px 20px 20px;
+  text-align: left;
+}
+
+.article-tweet footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.tweet-date {
+  font-size: 1rem;
+}
+
+.tweet-icons i {
+  color: #4056a1;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.tweet-icons a:hover i {
+  color: #545149;
 }

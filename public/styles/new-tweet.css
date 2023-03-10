@@ -1,9 +1,9 @@
 .new-tweet form {
-  max-width: 750px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 2rem;
 }
 
 .new-tweet label {
