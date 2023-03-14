@@ -53,7 +53,7 @@ $(document).ready(function () {
           </p>
         </section>
         <footer>
-          <div class="tweet-date">${created_at}</div>
+          <div class="tweet-date">${timeago.format(created_at)}</div>
           <div class="tweet-icons">
             <a href="#"><i class="fa-solid fa-flag"></i></a>
             <a href="#"><i class="fa-solid fa-retweet"></i></a>
@@ -67,4 +67,37 @@ $(document).ready(function () {
   };
 
   renderTweets(data);
+
+  const loadTweets = function () {
+    $.ajax('/tweets', { method: 'GET', dataType: 'json' })
+      .then(function (tweets) {
+        renderTweets(tweets);
+      })
+      .catch(function (error) {
+        console.log(`Error fetching tweets: ${error}`);
+      });
+  };
+
+  loadTweets();
+
+  // new tweet event listener
+  $('#tweet-form').submit(function (event) {
+    event.preventDefault();
+
+    // serealize the the form data
+    const formData = $(this).serialize();
+
+    // submit POST request to server
+    $.ajax({
+      url: '/tweets',
+      nethod: 'POST',
+      data: formData,
+    })
+      .then(function (response) {
+        console.log(`Res: ${response}`);
+      })
+      .catch(function (error) {
+        console.log(`Error: ${error}`);
+      });
+  });
 });

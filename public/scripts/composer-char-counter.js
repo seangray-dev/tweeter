@@ -12,6 +12,5 @@ $(document).ready(function () {
     }
 
     $counter.text(charsLeft);
-    console.log(charsLeft);
   });
 });
