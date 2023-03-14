@@ -84,20 +84,29 @@ $(document).ready(function () {
   $('#tweet-form').submit(function (event) {
     event.preventDefault();
 
-    // serealize the the form data
-    const formData = $(this).serialize();
+    const $tweetContent = $('#tweet-text');
 
-    // submit POST request to server
-    $.ajax({
-      url: '/tweets',
-      nethod: 'POST',
-      data: formData,
-    })
-      .then(function (response) {
-        console.log(`Res: ${response}`);
+    // Check if tweet content is too long or empty
+    if ($tweetContent.val().length > 140) {
+      alert('Tweet is too long!');
+    } else if (!$tweetContent.val()) {
+      alert('Tweet is empty!');
+    } else {
+      // Serialize the form data
+      const formData = $(this).serialize();
+
+      // submit POST request to server
+      $.ajax({
+        url: '/tweets',
+        nethod: 'POST',
+        data: formData,
       })
-      .catch(function (error) {
-        console.log(`Error: ${error}`);
-      });
+        .then(function (response) {
+          console.log('Res:', response);
+        })
+        .catch(function (error) {
+          console.log('Error:', error);
+        });
+    }
   });
 });
