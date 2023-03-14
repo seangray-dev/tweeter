@@ -39,6 +39,7 @@ main {
   border: 3px solid #545149;
   padding: 20px;
   box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
 }
 
 .article-tweet header {
@@ -51,12 +52,12 @@ main {
 .tweet-profile {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .tweet-profile img {
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
