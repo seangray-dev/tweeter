@@ -99,12 +99,15 @@ $(document).ready(function () {
     event.preventDefault();
 
     const $tweetContent = $('#tweet-text');
+    $('.error').slideUp();
 
     // Check if tweet content is too long or empty
     if ($tweetContent.val().length > 140) {
-      alert('Tweet is too long!');
+      $('.error')
+        .text('Tweet is too long! Limit is 140 characters')
+        .slideDown();
     } else if (!$tweetContent.val()) {
-      alert('Tweet is empty!');
+      $('.error').text('Tweet is empty!').slideDown();
     } else {
       // Serialize the form data
       const formData = $(this).serialize();

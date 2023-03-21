@@ -41,3 +41,13 @@ textarea::placeholder {
 .new-tweet_col2 button:hover {
   cursor: pointer;
 }
+
+.error {
+  display: none;
+  border: 5px solid red;
+  color: red;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
