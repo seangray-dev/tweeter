@@ -34,33 +34,47 @@ $(document).ready(function () {
     }
   };
 
+  const escape = function (str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function (tweet) {
     const { user, content, created_at } = tweet;
+
+    // set default avatar image if missing
+    const avatar =
+      user && user.avatars ? user.avatars : 'https://i.imgur.com/nlhLi3I.png';
+
+    const name = user && user.name ? user.name : 'Sean Gray';
+    const handle = user && user.handle ? user.handle : '@SGRAY';
+    const tweetContent =
+      content && content.text ? content.text : $('#tweet-text').val();
+
     const $tweet = $(`
     <article class ="article-tweet">
-     <header>
-          <div class="tweet-profile">
-            <img src="${user.avatars}" alt="#" />
-            <h6>${user.name}</h6>
-          </div>
-          <div class="tweet-username">
-            <h6><a href="#">${user.handle}</a></h6>
-          </div>
-        </header>
-        <section class="tweet-text">
-          <p>
-            ${content.text}
-          </p>
-        </section>
-        <footer>
-          <div class="tweet-date">${timeago.format(created_at)}</div>
-          <div class="tweet-icons">
-            <a href="#"><i class="fa-solid fa-flag"></i></a>
-            <a href="#"><i class="fa-solid fa-retweet"></i></a>
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-          </div>
-        </footer>
-      </article>
+      <header>
+        <div class="tweet-profile">
+          <img src="${escape(avatar)}" alt="#" />
+          <h6>${escape(name)}</h6>
+        </div>
+        <div class="tweet-username">
+          <h6><a href="#">${escape(handle)}</a></h6>
+        </div>
+      </header>
+      <section class="tweet-text">
+        <p>${escape(tweetContent)}</p>
+      </section>
+      <footer>
+        <div class="tweet-date">${timeago.format(created_at)}</div>
+        <div class="tweet-icons">
+          <a href="#"><i class="fa-solid fa-flag"></i></a>
+          <a href="#"><i class="fa-solid fa-retweet"></i></a>
+          <a href="#"><i class="fa-solid fa-heart"></i></a>
+        </div>
+      </footer>
+    </article>
   `);
 
     return $tweet;
@@ -98,11 +112,17 @@ $(document).ready(function () {
       // submit POST request to server
       $.ajax({
         url: '/tweets',
-        nethod: 'POST',
+        method: 'POST',
         data: formData,
       })
         .then(function (response) {
-          console.log('Res:', response);
+          // Append new tweet to page
+          const $newTweet = createTweetElement(response);
+          $('#tweets-container').prepend($newTweet);
+
+          // Clear tweet input and reset character counter
+          $tweetContent.val('');
+          $('.counter').text('140');
         })
         .catch(function (error) {
           console.log('Error:', error);
