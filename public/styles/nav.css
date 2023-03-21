@@ -14,6 +14,20 @@ nav {
 }
 
 .arrow {
-  padding-top: 0.2em;
+  padding-top: 0.6em;
   text-align: center;
+  animation: moveUpDown 0.5s infinite alternate;
+}
+
+@keyframes moveUpDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.write-new-tweet:hover {
+  cursor: pointer;
 }

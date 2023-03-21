@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $('.write-new-tweet').on('click', function () {
+    $('.new-tweet').slideToggle();
+  });
+
   const data = [
     {
       user: {
