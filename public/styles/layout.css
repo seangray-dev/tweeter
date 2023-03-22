@@ -104,3 +104,16 @@ main {
 .tweet-icons a:hover i {
   color: #545149;
 }
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 3rem;
+  }
+
+  .tweets-container {
+    padding-top: 200px;
+  }
+}
