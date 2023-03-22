@@ -105,7 +105,7 @@ main {
   color: #545149;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
