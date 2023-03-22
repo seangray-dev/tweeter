@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.write-new-tweet').on('click', function () {
+  $('.nav__write-new-tweet').on('click', function () {
     $('.new-tweet').slideToggle();
   });
 
@@ -46,6 +46,7 @@ $(document).ready(function () {
 
   const renderTweets = function (tweets) {
     // loop through tweets
+    $('#tweets-container').empty();
     for (let tweetData of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweetData);
@@ -63,28 +64,19 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
     const { user, content, created_at } = tweet;
 
-    // set default avatar image if missing
-    const avatar =
-      user && user.avatars ? user.avatars : 'https://i.imgur.com/nlhLi3I.png';
-
-    const name = user && user.name ? user.name : 'Sean Gray';
-    const handle = user && user.handle ? user.handle : '@SGRAY';
-    const tweetContent =
-      content && content.text ? content.text : $('#tweet-text').val();
-
     const $tweet = $(`
     <article class ="article-tweet">
       <header>
         <div class="tweet-profile">
-          <img src="${escape(avatar)}" alt="#" />
-          <h6>${escape(name)}</h6>
+          <img src="${escape(user.avatars)}" alt="#" />
+          <h6>${escape(user.name)}</h6>
         </div>
         <div class="tweet-username">
-          <h6><a href="#">${escape(handle)}</a></h6>
+          <h6><a href="#">${escape(user.handle)}</a></h6>
         </div>
       </header>
       <section class="tweet-text">
-        <p>${escape(tweetContent)}</p>
+        <p>${escape(content.text)}</p>
       </section>
       <footer>
         <div class="tweet-date">${timeago.format(created_at)}</div>
@@ -139,9 +131,7 @@ $(document).ready(function () {
         data: formData,
       })
         .then(function (response) {
-          // Append new tweet to page
-          const $newTweet = createTweetElement(response);
-          $('#tweets-container').prepend($newTweet);
+          loadTweets();
 
           // Clear tweet input and reset character counter
           $tweetContent.val('');

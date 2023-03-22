@@ -1,15 +1,5 @@
-:export {
-  primary: #4056a1;
-  secondary: #ffffff;
-  body-bg: #f4f1ec;
-  border-article: #545149;
-  error: #ff0000;
-}
-
-:export {
-  primary: "Bungee", sans-serif;
-  secondary: "Source Sans Pro", sans-serif;
-}
+@use '../colors/colors.scss' as colors;
+@use '../fonts/fonts.scss' as fonts;
 
 html {
   box-sizing: border-box;
@@ -22,14 +12,16 @@ html {
 }
 
 /* Global layout stuff */
+
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: colors.$border-article;
+  background-color: colors.$body-bg;
   font-size: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: fonts.$secondary;
 }
 
 /* Additional CSS can be defined below or in other CSS files, as per instructions */
+
 header {
   margin-bottom: 2rem;
 }
@@ -43,9 +35,9 @@ main {
 }
 
 .article-tweet {
-  border: 3px solid #545149;
+  border: 3px solid colors.$border-article;
   padding: 20px;
-  box-shadow: 5px 5px 0px 0px #545149;
+  box-shadow: 5px 5px 0px 0px colors.$border-article;
   margin-bottom: 50px;
 }
 
@@ -72,7 +64,7 @@ main {
   opacity: 0.5;
   cursor: pointer;
   text-decoration: none;
-  color: #545149;
+  color: colors.$border-article;
   transition: opacity 0.3s ease;
 }
 
@@ -82,7 +74,7 @@ main {
 }
 
 .tweet-text p {
-  border-bottom: 3px solid #545149;
+  border-bottom: 3px solid colors.$border-article;
   padding: 10px 20px 20px 20px;
   text-align: left;
 }
@@ -99,13 +91,13 @@ main {
 }
 
 .tweet-icons i {
-  color: #4056a1;
+  color: colors.$primary;
   margin-left: 10px;
   transition: color 0.3s ease;
 }
 
 .tweet-icons a:hover i {
-  color: #545149;
+  color: colors.$border-article;
 }
 
 @media (min-width: 1024px) {
@@ -115,6 +107,7 @@ main {
     gap: 50px;
     padding: 3rem;
   }
+
   .tweets {
     padding-top: 200px;
   }

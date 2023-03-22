@@ -1,36 +1,29 @@
-:export {
-  primary: #4056a1;
-  secondary: #ffffff;
-  body-bg: #f4f1ec;
-  border-article: #545149;
-  error: #ff0000;
-}
-
-:export {
-  primary: "Bungee", sans-serif;
-  secondary: "Source Sans Pro", sans-serif;
-}
+@use '../colors/colors.scss' as colors;
+@use '../fonts/fonts.scss' as fonts;
 
 .nav {
   height: 120px;
   width: 100vw;
-  background-color: #4056a1;
-  color: #ffffff;
+  background-color: colors.$primary;
+  color: colors.$secondary;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
   position: fixed;
-}
-.nav__logo {
-  font-family: "Bungee", sans-serif;
-}
-.nav__write-new-tweet:hover {
-  cursor: pointer;
-}
-.nav__arrow {
-  padding-top: 0.6em;
-  text-align: center;
-  animation: moveUpDown 0.5s infinite alternate;
+
+  &__logo {
+    font-family: fonts.$primary;
+  }
+
+  &__write-new-tweet:hover {
+    cursor: pointer;
+  }
+
+  &__arrow {
+    padding-top: 0.6em;
+    text-align: center;
+    animation: moveUpDown 0.5s infinite alternate;
+  }
 }
 
 @keyframes moveUpDown {
@@ -41,11 +34,12 @@
     transform: translateY(-5px);
   }
 }
+
 .scroll-top {
   display: none;
   border: none;
   outline: none;
-  background: #4056a1;
+  background: colors.$primary;
   padding: 2rem;
   border-radius: 50%;
   position: fixed;
@@ -56,15 +50,15 @@
 }
 
 .scroll-top i {
-  color: #ffffff;
+  color: colors.$secondary;
   transition: color 0.3s ease;
 }
 
 .scroll-top:hover {
-  background: #ffffff;
+  background: colors.$secondary;
   animation: moveUpDown 0.5s infinite alternate;
 }
 
 .scroll-top:hover i {
-  color: #4056a1;
+  color: colors.$primary;
 }

@@ -1,15 +1,5 @@
-:export {
-  primary: #4056a1;
-  secondary: #ffffff;
-  body-bg: #f4f1ec;
-  border-article: #545149;
-  error: #ff0000;
-}
-
-:export {
-  primary: "Bungee", sans-serif;
-  secondary: "Source Sans Pro", sans-serif;
-}
+@use '../colors/colors.scss' as colors;
+@use '../fonts/fonts.scss' as fonts;
 
 .new-tweet {
   display: none;
@@ -33,24 +23,24 @@
   background: none;
   outline: none;
   resize: none;
-  border-bottom: 3px solid #4056a1;
+  border-bottom: 3px solid colors.$primary;
 }
 
 textarea::placeholder {
-  color: #545149;
+  color: colors.$border-article;
 }
 
 .new-tweet_col2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Bungee", sans-serif;
+  font-family: fonts.$primary;
 }
 
 .new-tweet_col2 button {
   border: none;
-  background: #4056a1;
-  color: #ffffff;
+  background: colors.$primary;
+  color: colors.$secondary;
   padding: 0.5rem 1rem;
   font-size: 1.3rem;
 }
@@ -61,8 +51,8 @@ textarea::placeholder {
 
 .error {
   display: none;
-  border: 5px solid #ff0000;
-  color: #ff0000;
+  border: 5px solid colors.$error;
+  color: colors.$error;
   font-weight: 700;
   text-transform: uppercase;
   padding: 1rem;
