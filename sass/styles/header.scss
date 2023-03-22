@@ -1,11 +1,10 @@
 @use '../colors/colors.scss' as colors;
+@import '../utils/mixins';
 
 .header {
+  @include align-middle();
   width: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding-top: 200px;
   background-color: colors.$primary;
   background-image: url('../../images/carbon-fibre.png');

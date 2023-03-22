@@ -1,5 +1,6 @@
 @use '../colors/colors.scss' as colors;
 @use '../fonts/fonts.scss' as fonts;
+@import '../utils/mixins';
 
 .nav {
   height: 120px;
@@ -36,6 +37,7 @@
 }
 
 .scroll-top {
+  @include align-middle();
   display: none;
   border: none;
   outline: none;
