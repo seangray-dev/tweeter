@@ -3,6 +3,22 @@ $(document).ready(function () {
     $('.new-tweet').slideToggle();
   });
 
+  // Button for scroll to top
+  const scrollTopBtn = $('.scroll-top');
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > $(this).height() / 4) {
+      scrollTopBtn.fadeIn();
+    } else {
+      scrollTopBtn.fadeOut();
+    }
+  });
+
+  scrollTopBtn.click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 800);
+    return false;
+  });
+
   const data = [
     {
       user: {

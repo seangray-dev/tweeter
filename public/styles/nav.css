@@ -31,3 +31,31 @@ nav {
 .write-new-tweet:hover {
   cursor: pointer;
 }
+
+.scroll-top {
+  display: none;
+  border: none;
+  outline: none;
+  background: red;
+  padding: 2rem;
+  border-radius: 50%;
+  position: fixed;
+  cursor: pointer;
+  right: 10px;
+  bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-top i {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.scroll-top:hover {
+  background: white;
+  animation: moveUpDown 0.5s infinite alternate;
+}
+
+.scroll-top:hover i {
+  color: red;
+}
