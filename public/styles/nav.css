@@ -36,7 +36,7 @@ nav {
   display: none;
   border: none;
   outline: none;
-  background: red;
+  background: #4056a1;
   padding: 2rem;
   border-radius: 50%;
   position: fixed;
@@ -57,5 +57,5 @@ nav {
 }
 
 .scroll-top:hover i {
-  color: red;
+  color: #4056a1;
 }
