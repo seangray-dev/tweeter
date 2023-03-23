@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Preview
 
-![Tweeter Preview](./public/images/preview.gif)
+![Tweeter Preview](./docs/preview.gif)
 
 ## Getting Started
 
