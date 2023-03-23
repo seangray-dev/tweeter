@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Toggle new tweet form when 'Write a new tweet' button clicked
   $('.nav__write-new-tweet').on('click', function () {
     $('.new-tweet').slideToggle();
   });
@@ -6,6 +7,7 @@ $(document).ready(function () {
   // Button for scroll to top
   const scrollTopBtn = $('.scroll-top');
 
+  // Show scroll to top button after scrolling down 1/4 of the page
   $(window).scroll(function () {
     if ($(this).scrollTop() > $(this).height() / 4) {
       scrollTopBtn.fadeIn();
@@ -14,11 +16,13 @@ $(document).ready(function () {
     }
   });
 
+  // Scroll to top when scroll to top button is clicked
   scrollTopBtn.click(function () {
     $('html, body').animate({ scrollTop: 0 }, 800);
     return false;
   });
 
+  // Sample tweet data
   const data = [
     {
       user: {
@@ -44,9 +48,11 @@ $(document).ready(function () {
     },
   ];
 
+  // Render tweet using sample data
   const renderTweets = function (tweets) {
-    // loop through tweets
+    // Clear tweets container
     $('#tweets-container').empty();
+    // Loop through tweets and create HTML elements
     for (let tweetData of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweetData);
@@ -55,12 +61,14 @@ $(document).ready(function () {
     }
   };
 
+  // Escape special chars in a string
   const escape = function (str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  // Create HTML for a tweet using the tweet data
   const createTweetElement = function (tweet) {
     const { user, content, created_at } = tweet;
 
@@ -94,6 +102,7 @@ $(document).ready(function () {
 
   renderTweets(data);
 
+  // Load tweets from server and render them
   const loadTweets = function () {
     $.ajax('/tweets', { method: 'GET', dataType: 'json' })
       .then(function (tweets) {
@@ -106,7 +115,7 @@ $(document).ready(function () {
 
   loadTweets();
 
-  // new tweet event listener
+  // Submit new tweet form
   $('#tweet-form').submit(function (event) {
     event.preventDefault();
 
