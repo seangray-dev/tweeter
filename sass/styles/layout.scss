@@ -37,8 +37,12 @@ main {
 .article-tweet {
   border: 3px solid colors.$border-article;
   padding: 20px;
-  box-shadow: 5px 5px 0px 0px colors.$border-article;
   margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+.article-tweet:hover {
+  box-shadow: 5px 5px 0px 0px colors.$border-article;
 }
 
 .article-tweet header {

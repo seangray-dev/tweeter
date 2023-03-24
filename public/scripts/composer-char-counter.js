@@ -5,7 +5,7 @@ $(document).ready(function () {
   $textarea.on('input', function () {
     const $counter = $(this).closest('.new-tweet').find('.counter');
     const charsLeft = maxChars - $(this).val().length;
-    if (charsLeft <= 0) {
+    if (charsLeft < 0) {
       $counter.css('color', 'red');
     } else {
       $counter.css('color', '');
